@@ -1,35 +1,27 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages (gh-pages branch)
 
 on:
   push:
     branches: [ main ]
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Prepare public directory
+      - name: Build public directory
         run: |
           mkdir -p public
-          # ensure index is present for root
-          if [ -f ./index.html ]; then cp index.html public/index.html; fi
-          if [ -f ./designguide.html ]; then cp designguide.html public/designguide.html; fi
+          # copy both index and designguide so the site serves properly
+          cp -f index.html public/ || true
+          cp -f designguide.html public/ || true
 
-      - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v1
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: ./public
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
