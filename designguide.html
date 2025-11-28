@@ -17,89 +17,88 @@
             font-style: normal;
         }
 
-        /* 디자인 토큰 (Design Tokens) */
+        /* 디자인 토큰 (Design Tokens) - 'hm-' 접두사 적용 */
         :root {
             /* 1. Blue Series (희망, 청명함, 새로운 시작) */
-            --color-primary: #0067C6;       /* 1.1 해밀 블루 (메인) */
-            --color-secondary: #009FE3;     /* 1.2 스카이 블루 (서브) */
-            --color-accent: #00C8FF;        /* 1.3 오션 시안 (강조) */
-            --color-hope: #64E5C2;          /* 1.4 민트 라이트 (희망) */
-            --color-therapy: #6D9EEB;       /* 1.5 소프트 라벤더 (치유) */
+            --hm-color-primary: #0067C6;       /* 1.1 해밀 블루 (메인) */
+            --hm-color-secondary: #009FE3;     /* 1.2 스카이 블루 (서브) */
+            --hm-color-accent: #00C8FF;        /* 1.3 오션 시안 (강조) */
+            --hm-color-hope: #64E5C2;          /* 1.4 민트 라이트 (희망) */
+            --hm-color-therapy: #6D9EEB;       /* 1.5 소프트 라벤더 (치유) */
             
             /* 2. Gray & Neutral Series (안정, 기반, 배경) */
-            --color-charcoal: #333333;      /* 2.1 차콜 20 (타이틀) */
-            --color-body: #595959;          /* 2.2 차콜 그레이 35 (본문) */
-            --color-line: #808080;          /* 2.3 미디엄 그레이 (라인) */
-            --color-bg-warm: #F5F3EB;       /* 2.4 웜 아이보리 (배경) */
-            --color-bg-soft: #E6E6E6;       /* 2.5 소프트 그레이 90 (여백) */
+            --hm-color-charcoal: #333333;      /* 2.1 차콜 20 (타이틀) */
+            --hm-color-body: #595959;          /* 2.2 차콜 그레이 35 (본문) */
+            --hm-color-line: #808080;          /* 2.3 미디엄 그레이 (라인) */
+            --hm-color-bg-warm: #F5F3EB;       /* 2.4 웜 아이보리 (배경) */
+            --hm-color-bg-soft: #E6E6E6;       /* 2.5 소프트 그레이 90 (여백) */
             
             /* Gradients */
-            /* 기본 그라데이션 (기존 유지) */
-            --gradient-main: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-hope) 100%);
-            /* 텍스트용 그라데이션 (양쪽 민트, 중앙 스카이블루) */
-            --gradient-text-style: linear-gradient(90deg, var(--color-hope) 0%, var(--color-secondary) 50%, var(--color-hope) 100%);
+            --hm-gradient-main: linear-gradient(135deg, var(--hm-color-secondary) 0%, var(--hm-color-hope) 100%);
+            --hm-gradient-text-style: linear-gradient(90deg, var(--hm-color-hope) 0%, var(--hm-color-secondary) 50%, var(--hm-color-hope) 100%);
             
             /* Typography Maps */
-            --font-head: 'ChosunIlbo_Myungjo', serif;
-            --font-body: 'Pretendard', sans-serif;
+            --hm-font-head: 'ChosunIlbo_Myungjo', serif;
+            --hm-font-body: 'Pretendard', sans-serif;
 
             /* Layout */
-            --radius-md: 12px;
-            --radius-lg: 20px;
-            --radius-pill: 50px; /* 좌우가 둥근 형태 */
-            --shadow-sm: 0 4px 10px rgba(0,0,0,0.05);
-            --shadow-md: 0 10px 25px rgba(0, 103, 198, 0.1);
+            --hm-radius-md: 12px;
+            --hm-radius-lg: 20px;
+            --hm-radius-pill: 50px;
+            --hm-shadow-sm: 0 4px 10px rgba(0,0,0,0.05);
+            --hm-shadow-md: 0 10px 25px rgba(0, 103, 198, 0.1);
         }
 
-        /* Base Styles */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: var(--font-body);
+        /* Base Styles Wrapper (Body 대신 사용) */
+        .hm-wrapper {
+            font-family: var(--hm-font-body);
             background-color: #F9FAFC;
-            color: var(--color-body);
+            color: var(--hm-color-body);
             line-height: 1.6;
             padding: 60px 20px;
+            box-sizing: border-box;
         }
+        .hm-wrapper * { box-sizing: border-box; }
 
-        .container {
+        .hm-container {
             max-width: 1100px;
             margin: 0 auto;
         }
 
         /* Header */
-        header {
+        .hm-header {
             text-align: center;
             margin-bottom: 80px;
             padding-bottom: 40px;
             border-bottom: 1px solid #e5e5e5;
         }
-        .main-logo-text {
-            font-family: var(--font-head);
+        .hm-main-logo-text {
+            font-family: var(--hm-font-head);
             font-size: 48px;
-            color: var(--color-charcoal);
+            color: var(--hm-color-charcoal);
             margin-bottom: 10px;
-            word-break: keep-all; /* 단어 단위 줄바꿈 */
+            word-break: keep-all;
         }
-        .main-logo-sub {
+        .hm-main-logo-sub {
             font-size: 16px;
-            color: var(--color-line);
+            color: var(--hm-color-line);
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         /* Section Common */
-        section {
+        .hm-section {
             background: #fff;
-            border-radius: var(--radius-lg);
+            border-radius: var(--hm-radius-lg);
             padding: 50px;
             margin-bottom: 60px;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--hm-shadow-sm);
         }
-        .section-title {
-            font-family: var(--font-body);
+        .hm-section-title {
+            font-family: var(--hm-font-body);
             font-weight: 700;
             font-size: 14px;
-            color: var(--color-line);
+            color: var(--hm-color-line);
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 40px;
@@ -109,7 +108,7 @@
         }
 
         /* Class Tag */
-        .class-tag {
+        .hm-class-tag {
             display: inline-block;
             font-family: monospace;
             font-size: 11px;
@@ -122,41 +121,40 @@
         }
 
         /* 1. Color Palette */
-        .color-series-title {
-            font-family: var(--font-head);
+        .hm-color-series-title {
+            font-family: var(--hm-font-head);
             font-size: 18px;
-            color: var(--color-charcoal);
+            color: var(--hm-color-charcoal);
             margin: 30px 0 20px;
             display: block;
         }
-        .color-row {
+        .hm-color-row {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
         }
-        .color-card {
+        .hm-color-card {
             width: 140px;
         }
-        .color-swatch {
+        .hm-color-swatch {
             height: 90px;
-            border-radius: var(--radius-md);
+            border-radius: var(--hm-radius-md);
             margin-bottom: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             border: 1px solid rgba(0,0,0,0.05);
         }
-        .color-meta h4 { font-size: 13px; color: var(--color-charcoal); margin-bottom: 2px; }
-        .color-meta p { font-size: 11px; color: var(--color-line); font-family: monospace; }
-        .color-desc { font-size: 11px; color: #888; display: block; margin-top: 4px; line-height: 1.3;}
+        .hm-color-meta h4 { font-size: 13px; color: var(--hm-color-charcoal); margin-bottom: 2px; }
+        .hm-color-meta p { font-size: 11px; color: var(--hm-color-line); font-family: monospace; }
+        .hm-color-desc { font-size: 11px; color: #888; display: block; margin-top: 4px; line-height: 1.3;}
 
         /* 2. Typography */
-        .typo-row { display: flex; flex-direction: column; gap: 40px; }
+        .hm-typo-row { display: flex; flex-direction: column; gap: 40px; }
         
-        /* Gradient Text Style */
-        .text-gradient {
-            font-family: var(--font-head);
+        .hm-text-gradient {
+            font-family: var(--hm-font-head);
             font-size: 48px;
             font-weight: 700;
-            background: var(--gradient-text-style);
+            background: var(--hm-gradient-text-style);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -165,172 +163,170 @@
             word-break: keep-all;
         }
 
-        .h1-style { font-family: var(--font-head); font-size: 42px; color: var(--color-charcoal); line-height: 1.3; word-break: keep-all; }
-        .h2-style { font-family: var(--font-head); font-size: 32px; color: var(--color-charcoal); line-height: 1.3; word-break: keep-all; }
+        .hm-h1-style { font-family: var(--hm-font-head); font-size: 42px; color: var(--hm-color-charcoal); line-height: 1.3; word-break: keep-all; }
+        .hm-h2-style { font-family: var(--hm-font-head); font-size: 32px; color: var(--hm-color-charcoal); line-height: 1.3; word-break: keep-all; }
         
-        /* Added Bold Style */
-        .body-bold-style { 
-            font-family: var(--font-body); 
+        .hm-body-bold-style { 
+            font-family: var(--hm-font-body); 
             font-size: 16px; 
-            font-weight: 700; /* Bold */
-            color: var(--color-charcoal); 
+            font-weight: 700; 
+            color: var(--hm-color-charcoal); 
             word-break: keep-all;
         }
-        .body-style { font-family: var(--font-body); font-size: 16px; color: var(--color-body); word-break: keep-all; }
+        .hm-body-style { font-family: var(--hm-font-body); font-size: 16px; color: var(--hm-color-body); word-break: keep-all; }
         
-        .quote-style {
-            font-family: var(--font-head); font-size: 20px; color: var(--color-primary); font-style: italic;
-            border-left: 4px solid var(--color-secondary); padding-left: 20px;
+        .hm-quote-style {
+            font-family: var(--hm-font-head); font-size: 20px; color: var(--hm-color-primary); font-style: italic;
+            border-left: 4px solid var(--hm-color-secondary); padding-left: 20px;
             word-break: keep-all;
         }
 
         /* 3. Buttons */
-        .btn-grid {
+        .hm-btn-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 40px;
             align-items: start;
         }
-        .btn-wrapper { text-align: center; }
+        .hm-btn-wrapper { text-align: center; }
         
         /* Button Base */
-        button {
-            font-family: var(--font-body);
+        .hm-btn {
+            font-family: var(--hm-font-body);
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        /* [Button 1] Gradient Pill (Main CTA) */
-        .btn-gradient {
-            background: var(--gradient-main);
+        /* [Button 1] Gradient Pill */
+        .hm-btn-gradient {
+            background: var(--hm-gradient-main);
             color: #fff;
             border: none;
             padding: 15px 40px;
-            border-radius: var(--radius-pill); /* 둥근 형태 */
+            border-radius: var(--hm-radius-pill);
             font-size: 16px;
             font-weight: 700;
             box-shadow: 0 4px 15px rgba(0, 159, 227, 0.3);
         }
-        .btn-gradient:hover {
-            background: var(--color-secondary); /* 호버 시 스카이블루 단색 */
+        .hm-btn-gradient:hover {
+            background: var(--hm-color-secondary);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 159, 227, 0.4);
         }
 
-        /* [Button 2] Soft Tint (Alternative to Outline) */
-        .btn-soft {
-            background: rgba(0, 159, 227, 0.1); /* 스카이블루의 10% 투명도 */
-            color: var(--color-primary);
+        /* [Button 2] Soft Tint */
+        .hm-btn-soft {
+            background: rgba(0, 159, 227, 0.1);
+            color: var(--hm-color-primary);
             border: none;
             padding: 15px 35px;
-            border-radius: var(--radius-pill);
+            border-radius: var(--hm-radius-pill);
             font-size: 16px;
             font-weight: 600;
         }
-        .btn-soft:hover {
-            background: var(--color-secondary); /* 호버 시 스카이블루 단색 */
+        .hm-btn-soft:hover {
+            background: var(--hm-color-secondary);
             color: #fff;
         }
 
-        /* [Button 3] Clean Border (Simple & Professional) */
-        .btn-border {
+        /* [Button 3] Clean Border */
+        .hm-btn-border {
             background: #fff;
-            border: 1.5px solid var(--color-line);
-            color: var(--color-charcoal);
+            border: 1.5px solid var(--hm-color-line);
+            color: var(--hm-color-charcoal);
             padding: 14px 35px;
-            border-radius: var(--radius-pill);
+            border-radius: var(--hm-radius-pill);
             font-size: 16px;
             font-weight: 500;
         }
-        .btn-border:hover {
-            background: var(--color-secondary); /* 호버 시 스카이블루 단색 */
-            border-color: var(--color-secondary);
+        .hm-btn-border:hover {
+            background: var(--hm-color-secondary);
+            border-color: var(--hm-color-secondary);
             color: #fff;
         }
 
         /* 4. Cards */
-        .card-grid { display: flex; gap: 30px; flex-wrap: wrap; }
+        .hm-card-grid { display: flex; gap: 30px; flex-wrap: wrap; }
         
-        /* Card Wrapper for External Tag */
-        .card-wrapper {
+        .hm-card-wrapper {
             flex: 1;
             min-width: 280px;
             display: flex;
             flex-direction: column;
-            gap: 15px; /* 카드와 태그 사이 간격 */
+            gap: 15px;
         }
 
         /* Card Style 1: Minimal Gradient Border */
-        .card-minimal {
+        .hm-card-minimal {
             background: white;
-            border-radius: var(--radius-md);
+            border-radius: var(--hm-radius-md);
             padding: 30px;
             position: relative;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--hm-shadow-sm);
             transition: transform 0.3s, box-shadow 0.3s;
             overflow: hidden;
             height: 100%;
         }
-        .card-minimal::before {
+        .hm-card-minimal::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 6px;
-            background: var(--gradient-main);
+            background: var(--hm-gradient-main);
         }
-        .card-minimal:hover {
+        .hm-card-minimal:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--hm-shadow-md);
         }
-        .card-minimal h3 { 
-            font-family: var(--font-head); 
-            font-size: 24px; /* 폰트 사이즈 확대 */
-            font-weight: 700; /* 볼드체 적용 */
+        .hm-card-minimal h3 { 
+            font-family: var(--hm-font-head); 
+            font-size: 24px;
+            font-weight: 700;
             margin-bottom: 10px; 
-            color: var(--color-charcoal);
+            color: var(--hm-color-charcoal);
         }
-        .card-minimal p { font-size: 14px; color: var(--color-body); margin-bottom: 20px; }
+        .hm-card-minimal p { font-size: 14px; color: var(--hm-color-body); margin-bottom: 20px; }
 
         /* Card Style 2: Icon Box */
-        .card-icon-box {
+        .hm-card-icon-box {
             background: white;
-            border-radius: var(--radius-md);
+            border-radius: var(--hm-radius-md);
             padding: 40px 30px;
             text-align: center;
             border: 1px solid #eee;
             transition: all 0.3s;
             height: 100%;
         }
-        .card-icon-box:hover {
-            border-color: var(--color-hope);
-            box-shadow: var(--shadow-md);
+        .hm-card-icon-box:hover {
+            border-color: var(--hm-color-hope);
+            box-shadow: var(--hm-shadow-md);
         }
-        .icon-circle {
+        .hm-icon-circle {
             width: 60px; height: 60px;
             border-radius: 50%;
             background: rgba(0, 159, 227, 0.1);
-            color: var(--color-secondary);
+            color: var(--hm-color-secondary);
             font-size: 24px;
             display: flex; align-items: center; justify-content: center;
             margin: 0 auto 20px;
             transition: all 0.3s;
         }
-        .card-icon-box:hover .icon-circle {
-            background: var(--gradient-main);
+        .hm-card-icon-box:hover .hm-icon-circle {
+            background: var(--hm-gradient-main);
             color: white;
         }
-        .card-icon-box h3 { 
-            font-family: var(--font-head); 
-            font-size: 24px; /* 폰트 사이즈 확대 */
-            font-weight: 700; /* 볼드체 적용 */
+        .hm-card-icon-box h3 { 
+            font-family: var(--hm-font-head); 
+            font-size: 24px; 
+            font-weight: 700; 
             margin-bottom: 10px; 
-            color: var(--color-charcoal); 
+            color: var(--hm-color-charcoal); 
         }
-        .card-icon-box p { font-size: 14px; color: #666; }
+        .hm-card-icon-box p { font-size: 14px; color: #666; }
 
-        /* Card Style 3: Dark Overlay (Call to Action) */
-        .card-overlay {
-            background: var(--color-primary);
-            border-radius: var(--radius-md);
+        /* Card Style 3: Dark Overlay */
+        .hm-card-overlay {
+            background: var(--hm-color-primary);
+            border-radius: var(--hm-radius-md);
             padding: 30px;
             color: white;
             position: relative;
@@ -340,23 +336,23 @@
             justify-content: center;
             height: 100%;
         }
-        .card-overlay-bg {
+        .hm-card-overlay-bg {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--gradient-main);
+            background: var(--hm-gradient-main);
             opacity: 0.9;
             z-index: 1;
         }
-        .card-content { position: relative; z-index: 2; }
-        .card-overlay h3 { 
-            font-family: var(--font-head); 
-            font-size: 24px; /* 폰트 사이즈 확대 */
-            font-weight: 700; /* 볼드체 적용 */
+        .hm-card-content { position: relative; z-index: 2; }
+        .hm-card-overlay h3 { 
+            font-family: var(--hm-font-head); 
+            font-size: 24px; 
+            font-weight: 700; 
             margin-bottom: 10px; 
             color: white; 
         }
-        .card-overlay p { color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 0; }
-        .overlay-icon {
+        .hm-card-overlay p { color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 0; }
+        .hm-overlay-icon {
             position: absolute;
             bottom: -20px; right: -20px;
             font-size: 120px;
@@ -365,272 +361,271 @@
             z-index: 1;
         }
 
+        .hm-footer {
+            text-align: center; color: #999; font-size: 12px; margin-top: 50px;
+        }
+
         /* [Mobile Responsive Styles] */
         @media (max-width: 768px) {
-            /* Layout: 여백 축소 */
-            body { padding: 20px 15px; }
-            section { padding: 30px 20px; margin-bottom: 30px; }
+            .hm-wrapper { padding: 20px 15px; }
+            .hm-section { padding: 30px 20px; margin-bottom: 30px; }
             
-            /* Header */
-            header { margin-bottom: 40px; padding-bottom: 30px; }
-            .main-logo-text { font-size: 32px; line-height: 1.3; }
-            .main-logo-sub { font-size: 13px; }
+            .hm-header { margin-bottom: 40px; padding-bottom: 30px; }
+            .hm-main-logo-text { font-size: 32px; line-height: 1.3; }
+            .hm-main-logo-sub { font-size: 13px; }
 
-            /* Color Palette: 모바일에서 2열 그리드로 */
-            .color-row { gap: 15px; }
-            .color-card { width: calc(50% - 8px); } /* 2열 배치 */
+            .hm-color-row { gap: 15px; }
+            .hm-color-card { width: calc(50% - 8px); }
             
-            /* Typography: 폰트 사이즈 최적화 */
-            .text-gradient { font-size: 32px; }
-            .h1-style { font-size: 28px; }
-            .h2-style { font-size: 24px; }
-            .body-style, .body-bold-style { font-size: 15px; line-height: 1.5; }
-            .quote-style { font-size: 17px; }
+            .hm-text-gradient { font-size: 32px; }
+            .hm-h1-style { font-size: 28px; }
+            .hm-h2-style { font-size: 24px; }
+            .hm-body-style, .hm-body-bold-style { font-size: 15px; line-height: 1.5; }
+            .hm-quote-style { font-size: 17px; }
 
-            /* Buttons: 꽉 찬 너비로 터치 영역 확보 */
-            .btn-grid { grid-template-columns: 1fr; gap: 30px; }
-            .btn-wrapper button { width: 100%; padding: 16px 20px; }
+            .hm-btn-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hm-btn-wrapper button { width: 100%; padding: 16px 20px; }
 
-            /* Cards: 세로로 쌓이도록 변경 */
-            .card-grid { flex-direction: column; gap: 40px; }
-            .card-wrapper { width: 100%; min-width: auto; }
+            .hm-card-grid { flex-direction: column; gap: 40px; }
+            .hm-card-wrapper { width: 100%; min-width: auto; }
         }
 
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <h1 class="main-logo-text">해밀 회생 파산 클리닉 센터</h1>
-            <span class="main-logo-sub">Design System Guide v3.1 (Responsive)</span>
-        </header>
+    <div class="hm-wrapper">
+        <div class="hm-container">
+            <!-- Header -->
+            <header class="hm-header">
+                <h1 class="hm-main-logo-text">해밀 회생 파산 클리닉 센터</h1>
+                <span class="hm-main-logo-sub">Design System Guide v3.2 (Imweb Safe)</span>
+            </header>
 
-        <!-- 1. Colors -->
-        <section>
-            <span class="section-title">01. Color Palette</span>
-            
-            <span class="color-series-title">Blue Series (희망, 청명함, 새로운 시작)</span>
-            <div class="color-row">
-                <div class="color-card">
-                    <div class="color-swatch" style="background: var(--color-primary);"></div>
-                    <div class="color-meta">
-                        <h4>해밀 블루</h4>
-                        <p>#0067C6</p>
-                        <span class="color-desc">메인: 신뢰, 전문성</span>
-                        <div class="class-tag">--color-primary</div>
-                    </div>
-                </div>
-                <div class="color-card">
-                    <div class="color-swatch" style="background: var(--color-secondary);"></div>
-                    <div class="color-meta">
-                        <h4>스카이 블루</h4>
-                        <p>#009FE3</p>
-                        <span class="color-desc">서브: 맑음, 투명함</span>
-                        <div class="class-tag">--color-secondary</div>
-                    </div>
-                </div>
-                <div class="color-card">
-                    <div class="color-swatch" style="background: var(--color-accent);"></div>
-                    <div class="color-meta">
-                        <h4>오션 시안</h4>
-                        <p>#00C8FF</p>
-                        <span class="color-desc">강조: 시원함, 해결</span>
-                        <div class="class-tag">--color-accent</div>
-                    </div>
-                </div>
-                <div class="color-card">
-                    <div class="color-swatch" style="background: var(--color-hope);"></div>
-                    <div class="color-meta">
-                        <h4>민트 라이트</h4>
-                        <p>#64E5C2</p>
-                        <span class="color-desc">희망: 안정, 회복</span>
-                        <div class="class-tag">--color-hope</div>
-                    </div>
-                </div>
-                <div class="color-card">
-                    <div class="color-swatch" style="background: var(--color-therapy);"></div>
-                    <div class="color-meta">
-                        <h4>소프트 라벤더</h4>
-                        <p>#6D9EEB</p>
-                        <span class="color-desc">치유: 위로, 감성</span>
-                        <div class="class-tag">--color-therapy</div>
-                    </div>
-                </div>
-            </div>
-
-            <span class="color-series-title">Gray & Neutral Series (안정, 기반, 배경)</span>
-            <div class="color-row">
-                <div class="color-card">
-                    <div class="color-swatch" style="background: var(--color-charcoal);"></div>
-                    <div class="color-meta">
-                        <h4>차콜 20</h4>
-                        <p>#333333</p>
-                        <span class="color-desc">타이틀: 무게감</span>
-                        <div class="class-tag">--color-charcoal</div>
-                    </div>
-                </div>
-                <div class="color-card">
-                    <div class="color-swatch" style="background: var(--color-body);"></div>
-                    <div class="color-meta">
-                        <h4>차콜 그레이 35</h4>
-                        <p>#595959</p>
-                        <span class="color-desc">본문: 가독성</span>
-                        <div class="class-tag">--color-body</div>
-                    </div>
-                </div>
-                <div class="color-card">
-                    <div class="color-swatch" style="background: var(--color-line);"></div>
-                    <div class="color-meta">
-                        <h4>미디엄 그레이</h4>
-                        <p>#808080</p>
-                        <span class="color-desc">라인, 아이콘 외곽선</span>
-                        <div class="class-tag">--color-line</div>
-                    </div>
-                </div>
-                <div class="color-card">
-                    <div class="color-swatch" style="background: var(--color-bg-warm); border:1px solid #ddd;"></div>
-                    <div class="color-meta">
-                        <h4>웜 아이보리</h4>
-                        <p>#F5F3EB</p>
-                        <span class="color-desc">배경: 따뜻함, 안도감</span>
-                        <div class="class-tag">--color-bg-warm</div>
-                    </div>
-                </div>
-                <div class="color-card">
-                    <div class="color-swatch" style="background: var(--color-bg-soft); border:1px solid #ddd;"></div>
-                    <div class="color-meta">
-                        <h4>소프트 그레이 90</h4>
-                        <p>#E6E6E6</p>
-                        <span class="color-desc">여백: 깔끔함, 구획</span>
-                        <div class="class-tag">--color-bg-soft</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 2. Typography -->
-        <section>
-            <span class="section-title">02. Typography</span>
-            <div class="typo-row">
-                <!-- New Gradient Typography -->
-                <div class="typo-item">
-                    <h1 class="text-gradient">금융의 아픔을 치유합니다.</h1>
-                    <p style="margin-top:10px; font-size:12px; color:#888;">(민트 → 스카이블루 → 민트 그라데이션 적용)</p>
-                    <div class="class-tag">.text-gradient</div>
-                </div>
-
-                <div class="typo-item">
-                    <h1 class="h1-style">개인회생/파산 진단 서비스</h1>
-                    <div class="class-tag">.h1-style (ChosunIlbo_Myungjo, 42px)</div>
-                </div>
-                <div class="typo-item">
-                    <h2 class="h2-style">맞춤형 채무 조정 솔루션</h2>
-                    <div class="class-tag">.h2-style (ChosunIlbo_Myungjo, 32px)</div>
-                </div>
-                <div class="typo-item">
-                    <p class="body-bold-style">
-                        중요한 정보나 강조할 내용은 프리텐다드 볼드체를 사용하여 신뢰감과 전달력을 높입니다.
-                    </p>
-                    <div class="class-tag">.body-bold-style (Pretendard, 16px, Bold)</div>
-                </div>
-                <div class="typo-item">
-                    <p class="body-style">
-                        해밀은 복잡한 법률 용어 대신 이해하기 쉬운 언어로 당신의 경제적 건강을 진단합니다. 
-                        과도한 채무로 인한 고통은 혼자 짊어질 짐이 아닙니다.
-                    </p>
-                    <div class="class-tag">.body-style (Pretendard, 16px)</div>
-                </div>
-                <div class="typo-item">
-                    <blockquote class="quote-style">
-                        "빚은 아픈 것이지 죄가 아닙니다. 다시 시작할 용기를 처방해 드립니다."
-                    </blockquote>
-                    <div class="class-tag">.quote-style (ChosunIlbo_Myungjo, Italic)</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. Buttons -->
-        <section>
-            <span class="section-title">03. Buttons (Hover Effect: Solid Sky Blue)</span>
-            <div class="btn-grid">
+            <!-- 1. Colors -->
+            <section class="hm-section">
+                <span class="hm-section-title">01. Color Palette</span>
                 
-                <!-- Button 1: Gradient Pill -->
-                <div class="btn-wrapper">
-                    <button class="btn-gradient">무료 진단하기</button>
-                    <br>
-                    <div class="class-tag">.btn-gradient</div>
-                    <p style="font-size:12px; margin-top:10px; color:#999;">Primary (Gradient Fill)</p>
-                </div>
-
-                <!-- Button 2: Soft Tint (New Proposal 1) -->
-                <div class="btn-wrapper">
-                    <button class="btn-soft">상담 예약</button>
-                    <br>
-                    <div class="class-tag">.btn-soft</div>
-                    <p style="font-size:12px; margin-top:10px; color:#999;">Secondary (Soft Background)</p>
-                </div>
-
-                <!-- Button 3: Clean Border (New Proposal 2) -->
-                <div class="btn-wrapper">
-                    <button class="btn-border">
-                        자세히 보기 <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                    <br>
-                    <div class="class-tag">.btn-border</div>
-                    <p style="font-size:12px; margin-top:10px; color:#999;">Tertiary (Clean Border)</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. Cards -->
-        <section>
-            <span class="section-title">04. Cards</span>
-            <div class="card-grid">
-                
-                <!-- Card 1 Wrapper -->
-                <div class="card-wrapper">
-                    <div class="card-minimal">
-                        <h3>정밀 진단</h3>
-                        <p>현재 소득과 부채 상황을 분석하여<br>회생/파산 가능 여부를 판단합니다.</p>
-                        <button class="btn-border" style="padding: 10px 20px; font-size: 14px;">바로가기 <i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                    <div class="class-tag">.card-minimal</div>
-                </div>
-
-                <!-- Card 2 Wrapper -->
-                <div class="card-wrapper">
-                    <div class="card-icon-box">
-                        <div class="icon-circle">
-                            <i class="fa-solid fa-file-prescription"></i>
+                <span class="hm-color-series-title">Blue Series (희망, 청명함, 새로운 시작)</span>
+                <div class="hm-color-row">
+                    <div class="hm-color-card">
+                        <div class="hm-color-swatch" style="background: var(--hm-color-primary);"></div>
+                        <div class="hm-color-meta">
+                            <h4>해밀 블루</h4>
+                            <p>#0067C6</p>
+                            <span class="hm-color-desc">메인: 신뢰, 전문성</span>
+                            <div class="hm-class-tag">--hm-color-primary</div>
                         </div>
-                        <h3>맞춤 처방</h3>
-                        <p>개개인의 상황에 최적화된<br>법률 솔루션을 제공합니다.</p>
                     </div>
-                    <div class="class-tag">.card-icon-box</div>
-                </div>
-
-                <!-- Card 3 Wrapper -->
-                <div class="card-wrapper">
-                    <div class="card-overlay">
-                        <div class="card-overlay-bg"></div>
-                        <div class="card-content">
-                            <h3>긴급 상담</h3>
-                            <p>독촉과 압류로 고통받고 계신가요?<br>지금 바로 상담하세요.</p>
+                    <div class="hm-color-card">
+                        <div class="hm-color-swatch" style="background: var(--hm-color-secondary);"></div>
+                        <div class="hm-color-meta">
+                            <h4>스카이 블루</h4>
+                            <p>#009FE3</p>
+                            <span class="hm-color-desc">서브: 맑음, 투명함</span>
+                            <div class="hm-class-tag">--hm-color-secondary</div>
                         </div>
-                        <i class="fa-solid fa-headset overlay-icon"></i>
                     </div>
-                    <div class="class-tag">.card-overlay</div>
+                    <div class="hm-color-card">
+                        <div class="hm-color-swatch" style="background: var(--hm-color-accent);"></div>
+                        <div class="hm-color-meta">
+                            <h4>오션 시안</h4>
+                            <p>#00C8FF</p>
+                            <span class="hm-color-desc">강조: 시원함, 해결</span>
+                            <div class="hm-class-tag">--hm-color-accent</div>
+                        </div>
+                    </div>
+                    <div class="hm-color-card">
+                        <div class="hm-color-swatch" style="background: var(--hm-color-hope);"></div>
+                        <div class="hm-color-meta">
+                            <h4>민트 라이트</h4>
+                            <p>#64E5C2</p>
+                            <span class="hm-color-desc">희망: 안정, 회복</span>
+                            <div class="hm-class-tag">--hm-color-hope</div>
+                        </div>
+                    </div>
+                    <div class="hm-color-card">
+                        <div class="hm-color-swatch" style="background: var(--hm-color-therapy);"></div>
+                        <div class="hm-color-meta">
+                            <h4>소프트 라벤더</h4>
+                            <p>#6D9EEB</p>
+                            <span class="hm-color-desc">치유: 위로, 감성</span>
+                            <div class="hm-class-tag">--hm-color-therapy</div>
+                        </div>
+                    </div>
                 </div>
 
-            </div>
-        </section>
+                <span class="hm-color-series-title">Gray & Neutral Series (안정, 기반, 배경)</span>
+                <div class="hm-color-row">
+                    <div class="hm-color-card">
+                        <div class="hm-color-swatch" style="background: var(--hm-color-charcoal);"></div>
+                        <div class="hm-color-meta">
+                            <h4>차콜 20</h4>
+                            <p>#333333</p>
+                            <span class="hm-color-desc">타이틀: 무게감</span>
+                            <div class="hm-class-tag">--hm-color-charcoal</div>
+                        </div>
+                    </div>
+                    <div class="hm-color-card">
+                        <div class="hm-color-swatch" style="background: var(--hm-color-body);"></div>
+                        <div class="hm-color-meta">
+                            <h4>차콜 그레이 35</h4>
+                            <p>#595959</p>
+                            <span class="hm-color-desc">본문: 가독성</span>
+                            <div class="hm-class-tag">--hm-color-body</div>
+                        </div>
+                    </div>
+                    <div class="hm-color-card">
+                        <div class="hm-color-swatch" style="background: var(--hm-color-line);"></div>
+                        <div class="hm-color-meta">
+                            <h4>미디엄 그레이</h4>
+                            <p>#808080</p>
+                            <span class="hm-color-desc">라인, 아이콘 외곽선</span>
+                            <div class="hm-class-tag">--hm-color-line</div>
+                        </div>
+                    </div>
+                    <div class="hm-color-card">
+                        <div class="hm-color-swatch" style="background: var(--hm-color-bg-warm); border:1px solid #ddd;"></div>
+                        <div class="hm-color-meta">
+                            <h4>웜 아이보리</h4>
+                            <p>#F5F3EB</p>
+                            <span class="hm-color-desc">배경: 따뜻함, 안도감</span>
+                            <div class="hm-class-tag">--hm-color-bg-warm</div>
+                        </div>
+                    </div>
+                    <div class="hm-color-card">
+                        <div class="hm-color-swatch" style="background: var(--hm-color-bg-soft); border:1px solid #ddd;"></div>
+                        <div class="hm-color-meta">
+                            <h4>소프트 그레이 90</h4>
+                            <p>#E6E6E6</p>
+                            <span class="hm-color-desc">여백: 깔끔함, 구획</span>
+                            <div class="hm-class-tag">--hm-color-bg-soft</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <footer style="text-align: center; color: #999; font-size: 12px; margin-top: 50px;">
-            © 2024 Haemil Financial General Hospital Design System.
-        </footer>
+            <!-- 2. Typography -->
+            <section class="hm-section">
+                <span class="hm-section-title">02. Typography</span>
+                <div class="hm-typo-row">
+                    <!-- New Gradient Typography -->
+                    <div class="hm-typo-item">
+                        <h1 class="hm-text-gradient">금융의 아픔을 치유합니다.</h1>
+                        <p style="margin-top:10px; font-size:12px; color:#888;">(민트 → 스카이블루 → 민트 그라데이션 적용)</p>
+                        <div class="hm-class-tag">.hm-text-gradient</div>
+                    </div>
 
+                    <div class="hm-typo-item">
+                        <h1 class="hm-h1-style">개인회생/파산 진단 서비스</h1>
+                        <div class="hm-class-tag">.hm-h1-style (ChosunIlbo_Myungjo, 42px)</div>
+                    </div>
+                    <div class="hm-typo-item">
+                        <h2 class="hm-h2-style">맞춤형 채무 조정 솔루션</h2>
+                        <div class="hm-class-tag">.hm-h2-style (ChosunIlbo_Myungjo, 32px)</div>
+                    </div>
+                    <div class="hm-typo-item">
+                        <p class="hm-body-bold-style">
+                            중요한 정보나 강조할 내용은 프리텐다드 볼드체를 사용하여 신뢰감과 전달력을 높입니다.
+                        </p>
+                        <div class="hm-class-tag">.hm-body-bold-style (Pretendard, 16px, Bold)</div>
+                    </div>
+                    <div class="hm-typo-item">
+                        <p class="hm-body-style">
+                            해밀은 복잡한 법률 용어 대신 이해하기 쉬운 언어로 당신의 경제적 건강을 진단합니다. 
+                            과도한 채무로 인한 고통은 혼자 짊어질 짐이 아닙니다.
+                        </p>
+                        <div class="hm-class-tag">.hm-body-style (Pretendard, 16px)</div>
+                    </div>
+                    <div class="hm-typo-item">
+                        <blockquote class="hm-quote-style">
+                            "빚은 아픈 것이지 죄가 아닙니다. 다시 시작할 용기를 처방해 드립니다."
+                        </blockquote>
+                        <div class="hm-class-tag">.hm-quote-style (ChosunIlbo_Myungjo, Italic)</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Buttons -->
+            <section class="hm-section">
+                <span class="hm-section-title">03. Buttons (Hover Effect: Solid Sky Blue)</span>
+                <div class="hm-btn-grid">
+                    
+                    <!-- Button 1: Gradient Pill -->
+                    <div class="hm-btn-wrapper">
+                        <button class="hm-btn hm-btn-gradient">무료 진단하기</button>
+                        <br>
+                        <div class="hm-class-tag">.hm-btn-gradient</div>
+                        <p style="font-size:12px; margin-top:10px; color:#999;">Primary (Gradient Fill)</p>
+                    </div>
+
+                    <!-- Button 2: Soft Tint (New Proposal 1) -->
+                    <div class="hm-btn-wrapper">
+                        <button class="hm-btn hm-btn-soft">상담 예약</button>
+                        <br>
+                        <div class="hm-class-tag">.hm-btn-soft</div>
+                        <p style="font-size:12px; margin-top:10px; color:#999;">Secondary (Soft Background)</p>
+                    </div>
+
+                    <!-- Button 3: Clean Border (New Proposal 2) -->
+                    <div class="hm-btn-wrapper">
+                        <button class="hm-btn hm-btn-border">
+                            자세히 보기 <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <br>
+                        <div class="hm-class-tag">.hm-btn-border</div>
+                        <p style="font-size:12px; margin-top:10px; color:#999;">Tertiary (Clean Border)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Cards -->
+            <section class="hm-section">
+                <span class="hm-section-title">04. Cards</span>
+                <div class="hm-card-grid">
+                    
+                    <!-- Card 1 Wrapper -->
+                    <div class="hm-card-wrapper">
+                        <div class="hm-card-minimal">
+                            <h3>정밀 진단</h3>
+                            <p>현재 소득과 부채 상황을 분석하여<br>회생/파산 가능 여부를 판단합니다.</p>
+                            <button class="hm-btn hm-btn-border" style="padding: 10px 20px; font-size: 14px;">바로가기 <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                        <div class="hm-class-tag">.hm-card-minimal</div>
+                    </div>
+
+                    <!-- Card 2 Wrapper -->
+                    <div class="hm-card-wrapper">
+                        <div class="hm-card-icon-box">
+                            <div class="hm-icon-circle">
+                                <i class="fa-solid fa-file-prescription"></i>
+                            </div>
+                            <h3>맞춤 처방</h3>
+                            <p>개개인의 상황에 최적화된<br>법률 솔루션을 제공합니다.</p>
+                        </div>
+                        <div class="hm-class-tag">.hm-card-icon-box</div>
+                    </div>
+
+                    <!-- Card 3 Wrapper -->
+                    <div class="hm-card-wrapper">
+                        <div class="hm-card-overlay">
+                            <div class="hm-card-overlay-bg"></div>
+                            <div class="hm-card-content">
+                                <h3>긴급 상담</h3>
+                                <p>독촉과 압류로 고통받고 계신가요?<br>지금 바로 상담하세요.</p>
+                            </div>
+                            <i class="fa-solid fa-headset hm-overlay-icon"></i>
+                        </div>
+                        <div class="hm-class-tag">.hm-card-overlay</div>
+                    </div>
+
+                </div>
+            </section>
+
+            <footer class="hm-footer">
+                © 2024 Haemil Financial General Hospital Design System.
+            </footer>
+        </div>
     </div>
 
 </body>
